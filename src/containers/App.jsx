@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
 import CityContainer from './CityContainer.jsx';
+import axios from 'axios';
 
 
 const mapStateToProps = (state) => ({
@@ -10,8 +11,24 @@ const mapDispatchToProps = (dispatch) => ({
 })
 
 
+
 class App extends Component {
   
+  componentDidMount() {
+
+    function getLA(){
+      return axios.get('http://localhost:3000/builtinla')
+    }
+    function getNY() {
+      return axios.get('http://localhost:3000/builtinny')
+    }
+    axios.all(getLA, getNY)
+      .then(axios.spread(function(LA, NY ) {
+        // place action here to input data into store
+      }))
+  }
+
+
   render() {
     return (
       <div>

@@ -15,7 +15,6 @@ class CityContainer extends Component {
   
   render() {
     const { events } = this.props;
-
     // Loop over events list, create a Set of unique locations out of cities...
     const cityList = new Set(events.map(event => {
       return event.location
