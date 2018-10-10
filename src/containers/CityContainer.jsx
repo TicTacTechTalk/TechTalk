@@ -15,10 +15,9 @@ class CityContainer extends Component {
   
   render() {
     const { events } = this.props;
-
     // Loop over events list, create a Set of unique locations out of cities...
     const cityList = new Set(events.map(event => {
-      return event.location
+      return event.city
     }));
     //convert Set to Array...
     const newCityList = [...cityList];
@@ -26,7 +25,7 @@ class CityContainer extends Component {
     const cityCards = [];
     for (let i = 0; i < newCityList.length; i++) {
       cityCards.push(
-          <CityCard key={i} location={newCityList[i]} events={events.filter(event => event.location === newCityList[i])} />
+          <CityCard key={i} location={newCityList[i]} events={events.filter(event => event.city === newCityList[i])} />
       )
     };
     return (

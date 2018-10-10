@@ -8,10 +8,12 @@ const path = require('path');
 const fs = require('fs');
 const db = require('./models/connection.js');
 const scraperController = require('./scraper')
+const CORS = require('cors')
 
 // apply bodyParser and cookieParser at every route.
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(CORS());
 
 app.post('/event', (req, res) => {
   const { name, location, time } = req.body;
