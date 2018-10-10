@@ -28,7 +28,9 @@ const initialState = {
   ],
   cities: ['New York City', 'Chicago', 'Los Angeles', 'Boston'],
   currentLocation: '',
-  selectedEvents: []
+  selectedEvents: [],
+  cityOn: false,
+  
 };
 
 const eventReducer = (state = initialState, action) => {
