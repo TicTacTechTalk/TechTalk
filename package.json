@@ -9,6 +9,10 @@
     "express": "^4.16.3",
     "nodemon": "^1.18.4",
     "pg-promise": "^8.5.0",
+    "@babel/core": "^7.1.2",
+    "@babel/preset-env": "^7.1.0",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.4",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
     "react-redux": "^5.0.7",
@@ -16,11 +20,16 @@
     "redux-thunk": "^2.3.0"
   },
   "devDependencies": {
-    "redux-devtools-extension": "^2.13.5"
+    "redux-devtools-extension": "^2.13.5",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-dev-server": "^3.1.9"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server/server.js"
+    "start-dev": "nodemon src/server/server.js",
+    "start": "webpack-dev-server --mode development --open",
+    "client": "webpack --mode production"
   },
   "repository": {
     "type": "git",
