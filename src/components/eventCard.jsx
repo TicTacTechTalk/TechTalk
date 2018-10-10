@@ -1,17 +1,19 @@
 import React, { Component } from "react";
 
-const eventCard = (props) => {
+const EventCard = (props) => {
+
+  console.log('PROPS ===>', props)
 
   return(
   <div className='event-card'>
-    <h1> {props} </h1>
-    <p> Location </p>
-    <p> Date </p>
-    <p> Time </p>
+    <h1> {props.name} </h1>
+    <p> {props.location} </p>
+    <p> {props.date} </p>
+    <p> {props.organizedBy} </p>
     <button> JOIN! </button>
     <button> ++Favorites </button>
   </div>
   )
 }
 
-export default eventCard;
+export default EventCard;
