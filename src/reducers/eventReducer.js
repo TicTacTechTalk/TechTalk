@@ -1,40 +1,20 @@
+import * as types from '../constants/actionTypes.js';
+
 const initialState = {
-  //Key: Value.reducer.key
-  events: [
-    {
-      id: 1,
-      location: 'Los Angeles',
-      date: '04/30/18',
-      name: 'JS Meetup'
-    },
-    {
-      id: 2,
-      location: 'New York City',
-      date: '05/12/18',
-      name: 'Python Meetup'
-    },
-    {
-      id: 3,
-      location: 'New York City',
-      date: '05/22/18',
-      name: 'Javascript Meetup'
-    },
-    {
-      id: 4,
-      location: 'Los Angeles',
-      date: '03/21/18',
-      name: 'Ruby Meetup'
-    }
-  ],
-  cities: ['New York City', 'Chicago', 'Los Angeles', 'Boston'],
-  currentLocation: '',
-  selectedEvents: [],
-  cityOn: false,
-  
+  events: [],
 };
 
 const eventReducer = (state = initialState, action) => {
+
+  const copy = Object.assign({}, state)
+
   switch (action.type) {
+
+    case types.ADD_EVENTS:
+      return {
+        ...state,
+        events: action.payload
+      }
     default:
     return state
   }
