@@ -17,6 +17,7 @@ const scraperController = {
             array[i]['name'] = $(e).find('.title').text()
             array[i]['organized_by'] = $(e).find('.organized-by').text()
             array[i]['data'] = $(e).find('.date').text().replace(/(^.{3})(\w+)/, '$1 $2')
+            array[i]['city'] = 'Los Angeles'
         })
         
         resolve(array.slice(1))
@@ -38,6 +39,7 @@ const scraperController = {
           array[i]['name'] = $(e).find('.title').text()
           array[i]['organized_by'] = $(e).find('.organized-by').text()
           array[i]['data'] = $(e).find('.date').text().replace(/(^.{3})(\w+)/, '$1 $2')
+          array[i]['city'] = 'New York'
         })
 
         resolve(array.slice(1))
