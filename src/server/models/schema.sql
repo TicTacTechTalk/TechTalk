@@ -5,6 +5,7 @@ CREATE TABLE "events" (
 	"name" varchar NOT NULL,
 	"location" varchar NOT NULL,
 	"time" varchar NOT NULL,
+	"organizedby" varchar NOT NULL,
 	CONSTRAINT events_pk PRIMARY KEY ("eventid")
 ) WITH (
   OIDS=FALSE
@@ -15,6 +16,7 @@ CREATE TABLE "events" (
 CREATE TABLE "user" (
 	"userid" serial NOT NULL,
 	"username" varchar NOT NULL,
+	"password" varchar NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY ("userid")
 ) WITH (
   OIDS=FALSE
@@ -37,3 +39,4 @@ CREATE TABLE "userevent" (
 
 ALTER TABLE "userevent" ADD CONSTRAINT "userevent_fk0" FOREIGN KEY ("userid") REFERENCES "user"("userid");
 ALTER TABLE "userevent" ADD CONSTRAINT "userevent_fk1" FOREIGN KEY ("eventid") REFERENCES "events"("eventid");
+
