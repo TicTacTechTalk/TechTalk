@@ -8,6 +8,12 @@ export function createUser(username, userID) {
   }
 }
 
+export const addEvents = events => ({ 
+  type: types.ADD_EVENTS,
+  payload: events
+})
+
+
 // export function fetchEvents() {
 //   return dispatch=> {
 //     fetch(`/events`,)
