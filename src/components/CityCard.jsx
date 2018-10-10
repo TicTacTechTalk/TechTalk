@@ -1,4 +1,5 @@
 import React from "react";
+import eventCard from './eventCard'
 
 const CityCard = (props) => {
   return(
