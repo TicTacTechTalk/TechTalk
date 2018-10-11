@@ -15,6 +15,7 @@ CREATE TABLE "events" (
 CREATE TABLE "user" (
 	"userid" serial NOT NULL,
 	"username" varchar NOT NULL,
+	"password" varchar NOT NULL,
 	CONSTRAINT user_pk PRIMARY KEY ("userid")
 ) WITH (
   OIDS=FALSE
