@@ -8,10 +8,12 @@ const path = require('path');
 const fs = require('fs');
 const db = require('./models/connection.js');
 const scraperController = require('./scraper')
+const CORS = require('cors')
 
 // apply bodyParser and cookieParser at every route.
 app.use(bodyParser.json());
 app.use(cookieParser());
+app.use(CORS());
 
 app.post('/event', (req, res) => {
   const { name, location, time } = req.body;
@@ -23,6 +25,22 @@ app.post('/event', (req, res) => {
       res.json(error);
     });
 });
+
+app.post('/addUser', (req, res) => {
+  console.log('REQ BODY ===>', req.body)
+  const { username, password } = req.body;
+  //TODO add bCrypt
+  db.query('INSERT INTO user(username, password) VALUES($1, $2)', [username, password])
+    .then(yeet => {
+      console.log('YEET')
+      return res.status(200);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+})
+
+// '/Login'
 
 app.get('/builtinla', (req, res) => {
   scraperController.getBuiltInLa()
