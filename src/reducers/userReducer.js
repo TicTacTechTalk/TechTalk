@@ -1,12 +1,22 @@
-import * as action from '../actions/actions.js';
+import * as types from '../constants/actionTypes.js';
 
 const initialState = {
-  //Key: Value.reducer.key
+  isLoggedIn: false
 };
 
 const userReducer = (state = initialState, action) => {
 
   switch (action.type) {
+    case types.SUCCESS_CREATE_USER:
+      return {
+        ...state,
+        events: action.payload
+      }
+    case types.FAIL_CREATE_USER:
+    return {
+      ...state,
+      events: action.payload
+    }
     default:
     return state
   }

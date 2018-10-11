@@ -5,7 +5,7 @@ const CityCard = (props) => {
   console.log(props)
   return(
   <div className='city-card'>
-    <button onClick={this.handleClick}> CITY PICTURE </button>
+    <button> CITY PICTURE </button>
     <p> {props.location} </p>
   </div>
   )

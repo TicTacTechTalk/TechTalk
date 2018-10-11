@@ -26,6 +26,22 @@ app.post('/event', (req, res) => {
     });
 });
 
+app.post('/addUser', (req, res) => {
+  console.log('REQ BODY ===>', req.body)
+  const { username, password } = req.body;
+  //TODO add bCrypt
+  db.query('INSERT INTO user(username, password) VALUES($1, $2)', [username, password])
+    .then(yeet => {
+      console.log('YEET')
+      return res.status(200);
+    })
+    .catch((error) => {
+      res.json(error);
+    });
+})
+
+// '/Login'
+
 app.get('/builtinla', (req, res) => {
   scraperController.getBuiltInLa()
   .then(data => res.send(data))

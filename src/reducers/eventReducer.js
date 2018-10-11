@@ -6,10 +6,7 @@ const initialState = {
 
 const eventReducer = (state = initialState, action) => {
 
-  const copy = Object.assign({}, state)
-
   switch (action.type) {
-
     case types.ADD_EVENTS:
       return {
         ...state,
