@@ -8,6 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const db = require('./models/connection.js');
 const scraperController = require('./scraper')
+const bcryptController = require('./controllers/bcrypt.js')
 const CORS = require('cors')
 
 // apply bodyParser and cookieParser at every route.
@@ -26,14 +27,21 @@ app.post('/event', (req, res) => {
     });
 });
 
-app.post('/addUser', (req, res) => {
-  console.log('REQ BODY ===>', req.body)
-  const { username, password } = req.body;
-  //TODO add bCrypt
-  db.query('INSERT INTO user(username, password) VALUES($1, $2)', [username, password])
+app.post('/user/login',
+  bcryptController.comparePassword,
+  (req, res, next) => {
+    res.send(res.locals.bool);
+  }
+)
+
+app.post('/user/addUser', 
+  bcryptController.hashPassword, 
+  (req, res) => {
+  const { username } = req.body;
+  db.none('INSERT INTO "user"(username, password) VALUES($1, $2)', [username, res.locals.hash])
     .then(yeet => {
       console.log('YEET')
-      return res.status(200);
+      res.status(200);
     })
     .catch((error) => {
       res.json(error);
