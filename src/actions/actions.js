@@ -4,7 +4,7 @@ import axios from 'axios';
 
 const addUserToDatabase =(username, password) => {
   console.log('username', username, 'password: ', password)
-  return axios.post('http://localhost:3000/addUser', {
+  return axios.post('http://localhost:3000/user/addUser', {
     username,
     password
   })
@@ -25,6 +25,7 @@ export const createUser = (username, password) => dispatch => {
       }
     }))
 };
+
 
 export const addEvents = events => ({
   type: types.ADD_EVENTS,
