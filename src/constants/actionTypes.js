@@ -2,3 +2,4 @@ export const CREATE_GROUP = 'CREATE_GROUP';
 export const SUCCESS_CREATE_USER = 'SUCCESS_CREATE_USER';
 export const ADD_EVENTS = 'ADD_EVENTS';
 export const FAIL_CREATE_USER = 'FAIL_CREATE_USER';
+export const TOGGLE_CITY = 'TOGGLE_CITY';

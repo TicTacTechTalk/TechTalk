@@ -30,3 +30,8 @@ export const addEvents = events => ({
   type: types.ADD_EVENTS,
   payload: events
 });
+
+export const toggleCity = (city) => ({
+  type: types.TOGGLE_CITY,
+  payload: city
+})

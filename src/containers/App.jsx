@@ -6,6 +6,7 @@ import axios from 'axios';
 import * as actions from '../actions/actions.js'
 
 const mapStateToProps = (state) => ({
+
 })
 
 const mapDispatchToProps = (dispatch) => ({ 
@@ -15,7 +16,7 @@ const mapDispatchToProps = (dispatch) => ({
 class App extends Component {
   
   componentDidMount() {
-    const { addEvents } = this.props;
+    const { addEvents, toggleCity, selected } = this.props;
     
     function getLA () {
       return axios.get('http://localhost:3000/builtinla')
@@ -34,8 +35,8 @@ class App extends Component {
   render() {
     return (
       <div>
-        <LoginContainer />
-        {/* <CityContainer/> */}
+        {/* <LoginContainer /> */}
+        <CityContainer />
       </div>
     );
   }

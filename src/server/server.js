@@ -52,7 +52,13 @@ app.get('/builtinny', (req, res) => {
   .then(data => res.send(data))
 })
 
+app.get('/los_angeles.jpg', (req, res) => {
+  console.log('hello')
+  res.sendFile(path.resolve(__dirname, '../../assets/los_angeles.jpg'))
+})
+
 // initialize server at PORT 3000;
 app.listen(3000, () => {
   console.log('Listening to live on port 3000!');
 });
+

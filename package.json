@@ -28,6 +28,7 @@
     "@babel/plugin-proposal-class-properties": "^7.1.0",
     "bluebird": "^3.5.2",
     "cheerio": "^1.0.0-rc.2",
+    "file-loader": "^2.0.0",
     "redux-devtools-extension": "^2.13.5",
     "webpack": "^4.20.2",
     "webpack-cli": "^3.1.2",

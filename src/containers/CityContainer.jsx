@@ -2,20 +2,22 @@ import React, { Component } from "react";
 import { connect } from 'react-redux';
 import CityCard from '../components/CityCard.jsx';
 import EventCard from '../components/EventCard.jsx';
+import * as actions from '../actions/actions'
 
-const mapStateToProps = state => ({
-  events: state.event.events
+const mapStateToProps = store => ({
+  events: store.event.events,
+  selected: store.event.selected
 });
 
 const mapDispatchToProps = dispatch => ({
-
+  toggleCity: city => dispatch(actions.toggleCity(city))
 });
 
 
 class CityContainer extends Component {
   
   render() {
-    const { events } = this.props;
+    const { events, selected, toggleCity } = this.props;
     // Loop over events list, create a Set of unique locations out of cities...
     const cityList = new Set(events.map(event => {
       return event.city
@@ -26,11 +28,11 @@ class CityContainer extends Component {
     const cityCards = [];
     let selectedEvents = [];
     const eventObj = {};
-    let selected = 'Los Angeles'; // TODO: Move this Toggle to Redux Store
+     // TODO: Move this Toggle to Redux Store
 
     for (let i = 0; i < newCityList.length; i++) {
       cityCards.push(
-          <CityCard key={i} location={newCityList[i]} />
+          <CityCard key={i} location={newCityList[i]} selected={selected} toggleCity={toggleCity} />
       )
 
       // TODO: Refactor to not reconstruct info from Scrape
@@ -56,7 +58,7 @@ class CityContainer extends Component {
 
     if (!selected) {
       return ( 
-        <div>
+        <div className='city-container'>
           {cityCards}
         </div>
       )
