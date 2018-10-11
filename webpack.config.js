@@ -8,6 +8,7 @@ module.exports = {
   },
   devServer: {
     publicPath: '/dist',
+    
     // contentBase: "./public"
   },
   module: {

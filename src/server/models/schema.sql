@@ -31,9 +31,15 @@ CREATE TABLE "userevent" (
   OIDS=FALSE
 );
 
+CREATE TABLE "locations" (
+	"name" varchar NOT NULL,
+	"locationid" serial NOT NULL,
+	CONSTRAINT locations_pk PRIMARY KEY ("locationid")
+)
 
 
 
 
 ALTER TABLE "userevent" ADD CONSTRAINT "userevent_fk0" FOREIGN KEY ("userid") REFERENCES "user"("userid");
 ALTER TABLE "userevent" ADD CONSTRAINT "userevent_fk1" FOREIGN KEY ("eventid") REFERENCES "events"("eventid");
+ALTER TABLE "events" ADD CONSTRAINT "events_fk0" FOREIGN KEY ("location") REFERENCES "locations"("name")
