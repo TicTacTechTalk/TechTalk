@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import CityContainer from './CityContainer.jsx';
+import CityApp from './CityApp.jsx';
 import LoginContainer from './LoginContainer.jsx';
 import axios from 'axios';
 import * as actions from '../actions/actions.js'
@@ -18,9 +18,9 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar/>
-        <LoginContainer />
-        <CityContainer />
+        {/* <NavBar/> */}
+        {/* <LoginContainer /> */}
+        <CityApp />
       </div>
     );
   }

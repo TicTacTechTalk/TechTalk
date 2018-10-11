@@ -58,7 +58,7 @@ class CityContainer extends Component {
 
     if (!selected) {
       return ( 
-        <div className='city-container' style={{ display: 'flex'}}>
+        <div className='city-container'>
           {cityCards}
         </div>
       )

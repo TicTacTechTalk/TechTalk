@@ -15,7 +15,6 @@ const eventReducer = (state = initialState, action) => {
       }
 
     case types.TOGGLE_CITY:
-    console.log(action.payload)
       return {
         ...state,
         selected: action.payload
