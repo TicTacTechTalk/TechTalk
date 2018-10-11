@@ -5,6 +5,7 @@ import LoginForm from '../components/LoginForm.jsx';
 
 
 const mapStateToProps = (state) => ({
+  
 })
 
 const mapDispatchToProps = (dispatch) => ({
@@ -13,6 +14,7 @@ const mapDispatchToProps = (dispatch) => ({
 
 class LoginPage extends Component {
   
+  // Connect this to a REGISTER function
   submit = values => {
     const { createUser } = this.props;
     const { username, password } = values;
