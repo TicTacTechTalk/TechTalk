@@ -1,15 +1,15 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography'
+import Typography from '@material-ui/core/Typography';
 
-const Navbar = () => {
+const Navbar = (props) => {
 
   return (
     <div>
       <AppBar position="static">
         <Toolbar>
-        <Typography variant="title" color="inherit">
+        <Typography variant="title" color="inherit" onClick={() => props.toggleCity('')}>
             TECH TALK
           </Typography>
           </Toolbar>
