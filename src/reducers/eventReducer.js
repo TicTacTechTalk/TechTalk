@@ -2,6 +2,7 @@ import * as types from '../constants/actionTypes.js';
 
 const initialState = {
   events: [],
+  selected: ''
 };
 
 const eventReducer = (state = initialState, action) => {
@@ -12,6 +13,13 @@ const eventReducer = (state = initialState, action) => {
         ...state,
         events: action.payload
       }
+
+    case types.TOGGLE_CITY:
+      return {
+        ...state,
+        selected: action.payload
+      }
+
     default:
     return state
   }
