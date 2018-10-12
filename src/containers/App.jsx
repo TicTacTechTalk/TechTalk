@@ -11,14 +11,15 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({ 
-
+  toggleCity: city => dispatch(actions.toggleCity(city))
 })
 
 class App extends Component {
   render() {
+    const { toggleCity } = this.props
     return (
       <div>
-        {/* <NavBar/> */}
+        <NavBar toggleCity={toggleCity}/>
         {/* <LoginContainer /> */}
         <CityApp />
       </div>

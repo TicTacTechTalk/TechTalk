@@ -2,7 +2,10 @@ import * as types from '../constants/actionTypes.js';
 
 const initialState = {
   events: [],
-  selected: ''
+  selected: '',
+  changeJoin: null,
+  targetCity: null,
+  variant: false
 };
 
 const eventReducer = (state = initialState, action) => {
@@ -19,6 +22,14 @@ const eventReducer = (state = initialState, action) => {
         ...state,
         selected: action.payload
       }
+
+    case types.TOGGLE_JOIN:
+    return {
+      ...state,
+      changeJoin: action.payload.id,
+      targetCity: action.payload.city,
+      variant: state.variant? false: true
+    }
 
     default:
     return state

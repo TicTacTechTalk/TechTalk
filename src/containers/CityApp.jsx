@@ -35,7 +35,7 @@ class CityApp extends Component {
 
     return (
       <div>
-        <NavBar/>
+        {/* <NavBar/> */}
         <CityContainer/>
       </div>
     );

@@ -6,18 +6,22 @@ import * as actions from '../actions/actions'
 
 const mapStateToProps = store => ({
   events: store.event.events,
-  selected: store.event.selected
+  selected: store.event.selected,
+  changeJoin: store.event.changeJoin,
+  targetCity: store.event.targetCity,
+  variant: store.event.variant
 });
 
 const mapDispatchToProps = dispatch => ({
-  toggleCity: city => dispatch(actions.toggleCity(city))
+  toggleCity: city => dispatch(actions.toggleCity(city)),
+  toggleJoin: (id, city) => dispatch(actions.toggleJoin(id, city))
 });
 
 
 class CityContainer extends Component {
   
   render() {
-    const { events, selected, toggleCity } = this.props;
+    const { events, selected, toggleCity, toggleJoin, changeJoin, targetCity, variant } = this.props;
     // Loop over events list, create a Set of unique locations out of cities...
     const cityList = new Set(events.map(event => {
       return event.city
@@ -45,11 +49,12 @@ class CityContainer extends Component {
         for (let i = 0; i < eventObj[key].length; i += 1) {
           selectedEvents.push(
               <EventCard 
-                key={i}
+                id={i}
                 name={eventObj[key][i].name} 
                 organizedBy={eventObj[key][i].organized_by} 
                 date={eventObj[key][i].date}
                 city={key}
+                toggleJoin={toggleJoin}
                 />
           ) 
         }

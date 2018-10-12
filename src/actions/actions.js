@@ -36,3 +36,11 @@ export const toggleCity = (city) => ({
   type: types.TOGGLE_CITY,
   payload: city
 })
+
+export const toggleJoin = (id, city) => ({
+  type: types.TOGGLE_JOIN,
+  payload: {
+    id,
+    city
+  }
+})
