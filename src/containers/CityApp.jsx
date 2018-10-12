@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import CityContainer from './CityContainer';
+import CityContainer from './CityContainer.jsx';
 import axios from 'axios';
 import * as actions from '../actions/actions'
-import NavBar from '../components/NavBar'
+import NavBar from '../components/NavBar.jsx'
 
 const mapStateToProps = (state) => ({
 })
@@ -35,7 +35,7 @@ class CityApp extends Component {
 
     return (
       <div>
-        <NavBar/>
+        {/* <NavBar/> */}
         <CityContainer/>
       </div>
     );
